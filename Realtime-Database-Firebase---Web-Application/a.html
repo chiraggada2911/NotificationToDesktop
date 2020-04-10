@@ -1,0 +1,54 @@
+<head>
+    <meta>
+    <title>VANET REALTIME DATABASE ></title>
+    <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-database.js"></script>
+</head>
+
+<body>
+    <!--value -->
+    <pre id="node1">
+           </pre>
+    <!--Child -->
+
+<div id="data"></div>
+    <script>
+        window.onload = function() {
+            // Initialization Firebase
+            const firebaseConfig = {
+            apiKey: "AIzaSyCRHHX4i4gC2JXRyMAPmvOaM7UILJapZg0",
+            authDomain: "pileupnotification.firebaseapp.com",
+            databaseURL: "https://pileupnotification.firebaseio.com",
+            projectId: "pileupnotification",
+            storageBucket: "pileupnotification.appspot.com",
+            messagingSenderId: "608059142592",
+            appId: "1:608059142592:web:1766bdcdcde212b11ed825"
+          };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            //get elements
+            const preObject = document.getElementById('/');
+            //create referencees
+            const dbRefObject = firebase.database().ref();
+              //sync object changes
+            dbRefObject.once('value').then(function(snapshot) {
+                console.log(snapshot.val());
+                var content = '';
+                snapshot.forEach(function(data){
+                    var val = data.val();
+                    content +='<tr>';
+                    content += '<td>' + val.date + '</td>';
+                    content += '<td>' + val.name + '</td>';
+                    content += '<td>' + val.orderNo + '</td>';
+                    content += '<td>' + val.Items + '</td>';
+                    content += '<td>' + val.Price + '</td>';
+                    content += '</tr>';
+                });
+                console.log(content);
+                // document.getElementById("data").innerHTML = snapshot.val().key.value;
+                //display on pre tag
+                //preObject.innerHTML = snapshot.val();
+            });
+        }
+    </script>
+</body>

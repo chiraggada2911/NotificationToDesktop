@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "608059142592",
+    "firebase_url": "https://pileupnotification.firebaseio.com",
+    "project_id": "pileupnotification",
+    "storage_bucket": "pileupnotification.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:608059142592:android:6628ff9279c459f81ed825",
+        "android_client_info": {
+          "package_name": "com.example.pileupnotification"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "608059142592-igeu5s8ule2i5p5640g1vgt89jsk44ch.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pileupnotification",
+            "certificate_hash": "8d17e7f5c4a75591c9a7a36188fc8bd28b8efabe"
+          }
+        },
+        {
+          "client_id": "608059142592-o730go27fa4qfmhu22o40atu87142716.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2z2WAjlSrHh7v6t7djRUQpXckhIiDaJA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "608059142592-o730go27fa4qfmhu22o40atu87142716.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tech Talk - Firebase Web</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+  </head>
+    <body>
+        <table id ="msg">
+        <tr>
+          <th>date</th>
+          <th>ID</th>
+          <th>Pack</th>
+          <th>Text</th>
+          <th>Title</th>
+        </tr>
+
+      </table>
+    </body>
+  </html>
+  <style>
+  body {
+    font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
+    margin: 2em;
+  }
+
+  h1 {
+    font-style: italic;
+    color: #373fff;
+  }
+
+  #orders{
+   border:2px solid black;
+  }
+  table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+  </style>
+      <script>
+      const config = {
+      apiKey: "AIzaSyCRHHX4i4gC2JXRyMAPmvOaM7UILJapZg0",
+      authDomain: "pileupnotification.firebaseapp.com",
+      databaseURL: "https://pileupnotification.firebaseio.com",
+      projectId: "pileupnotification",
+      storageBucket: "pileupnotification.appspot.com",
+      messagingSenderId: "608059142592",
+      appId: "1:608059142592:web:1766bdcdcde212b11ed825"
+    };
+        firebase.initializeApp(config);
+        console.log("hello")
+        var database = firebase.database();
+        database.ref().once('value', function(snapshot){
+          console.log("hello")
+          if(snapshot.exists()){
+              var content = '';
+              snapshot.forEach(function(data){
+                  var val = data.val();
+                  content +='<tr>';
+                  content += '<td>' + val.date + '</td>';
+                  content += '<td>' + val.mId + '</td>';
+                  content += '<td>' + val.mPack + '</td>';
+                  content += '<td>' + val.mText + '</td>';
+                  content += '<td>' + val.mTitle + '</td>';
+                  content += '</tr>';
+              });
+              $('#msg').append(content);
+          }
+      });
+
+  </script>
